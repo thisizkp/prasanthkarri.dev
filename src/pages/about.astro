@@ -1,5 +1,17 @@
 ---
+const pageTitle = "About Me";
 
+const identity = {
+    name: "KP",
+    occupation: "Software Engineer",
+    hobbies: ["Coding", "Reading", "Gaming"]
+};
+
+const skills = ["HTML", "CSS", "JavaScript", "React"];
+
+const skillColor = "navy";
+const fontWeight = "bold";
+const textCase = "uppercase";
 ---
 
 <html lang="en">
@@ -8,14 +20,32 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>{pageTitle}</title>
+        <style define:vars={{skillColor, fontWeight, textCase}}>
+            h1 {
+                color: purple;
+                font-size: 4rem;
+            }
+            .skill {
+                color: var(--skillColor);
+                font-weight: var(--fontWeight);
+                text-transform: var(--textCase);
+            }
+        </style>
+
 	</head>
 	<body>
 	    <a href="/">Home</a>
         <a href="/about/">About</a>
         <a href="/blog/">Blog</a>
 
-        <h1>About Me</h1>
-        <p>Lazy to write. May be one day.</p>
+        <h1>{pageTitle}</h1>
+        <p>A few facts about me (I know, I know. A boring format): </p>
+        <ul>
+            <li>Name: {identity.name}</li>
+            <li>Occupation: {identity.occupation}</li>
+            <li>Hobbies: {identity.hobbies.join(", ")}</li>
+            <li class="skill">Skills: {skills.join(", ")}</li>
+        </ul>
 	</body>
 </html>
