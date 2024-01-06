@@ -1,14 +1,11 @@
 ---
+layout: ../../layouts/MarkdownPostLayout.astro
 title: 'Hello World'
 pubDate: 2024-01-06
 description: 'First blog post. More to Come.'
 author: 'KP'
 tags: ["learning in public"]
 ---
-# Hello World
-
-Published on: 2024-01-06
-
 Welcome to my blog!. Here, I will share my learning journey as I explore various technologies and concepts.
 
 There's are tonnes of things to learn. I will be using this blog to document my learning journey. By learning in public, I hope to learn faster and better by getting feedback from the community.

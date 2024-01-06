@@ -2,4 +2,8 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 const pageTitle = 'Blog';
 ---
-<BaseLayout pageTitle={pageTitle} />
+<BaseLayout pageTitle={pageTitle}>
+    <ul>
+        <li><a href="/posts/hello-world/">Hello World</a></li>
+    </ul>
+</BaseLayout>
