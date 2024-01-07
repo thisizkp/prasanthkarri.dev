@@ -3,7 +3,7 @@ layout: ../../layouts/MarkdownPostLayout.astro
 title: 'Hello World'
 pubDate: 2024-01-06
 description: 'First blog post.'
-tags: ["learning in public"]
+tags: ["misc"]
 ---
 
 Hello World!
