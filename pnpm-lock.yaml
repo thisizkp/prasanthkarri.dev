@@ -8,7 +8,7 @@ dependencies:
   '@astrojs/rss':
     specifier: ^4.0.1
     version: 4.0.1
-  '@fontsource/martian-mono':
+  '@fontsource/ibm-plex-serif':
     specifier: ^5.0.8
     version: 5.0.8
   astro:
@@ -525,8 +525,8 @@ packages:
     dev: false
     optional: true
 
-  /@fontsource/martian-mono@5.0.8:
-    resolution: {integrity: sha512-9XXGJww+3rrztm6d8aauiHUW1LMWmOlKmAQkpZKN1j5PQ3MrGWk+E2C+vN/9DxcCBSz55tZAtMCcOSFSqJXT7g==}
+  /@fontsource/ibm-plex-serif@5.0.8:
+    resolution: {integrity: sha512-KUp1E9Wzf2Umhr2SbpcF9HwgFJmuxvKAARmpl7GDDkIG30R1PMFJWxfSfQ7oX/oVBtomGq5RUTaMMUeE0ngEgw==}
     dev: false
 
   /@img/sharp-darwin-arm64@0.33.1:
