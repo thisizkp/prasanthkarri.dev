@@ -8,6 +8,9 @@ dependencies:
   '@astrojs/rss':
     specifier: ^4.0.1
     version: 4.0.1
+  '@fontsource/martian-mono':
+    specifier: ^5.0.8
+    version: 5.0.8
   astro:
     specifier: ^4.1.1
     version: 4.1.1
@@ -521,6 +524,10 @@ packages:
     requiresBuild: true
     dev: false
     optional: true
+
+  /@fontsource/martian-mono@5.0.8:
+    resolution: {integrity: sha512-9XXGJww+3rrztm6d8aauiHUW1LMWmOlKmAQkpZKN1j5PQ3MrGWk+E2C+vN/9DxcCBSz55tZAtMCcOSFSqJXT7g==}
+    dev: false
 
   /@img/sharp-darwin-arm64@0.33.1:
     resolution: {integrity: sha512-esr2BZ1x0bo+wl7Gx2hjssYhjrhUsD88VQulI0FrG8/otRQUOxLWHMBd1Y1qo2Gfg2KUvXNpT0ASnV9BzJCexw==}
