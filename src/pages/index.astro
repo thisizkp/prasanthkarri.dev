@@ -10,7 +10,11 @@ const pageTitle = "Home";
     <ul>
         {
             allPosts.map((post) => (
-                <BlogPost url={post.url} title={post.frontmatter.title} />
+                <BlogPost
+                    url={post.url}
+                    title={post.frontmatter.title}
+                    pubDate={post.frontmatter.pubDate}
+                />
             ))
         }
     </ul>

@@ -1,4 +1,10 @@
 ---
-const { url, title } = Astro.props;
+import { formatDate } from "../utils/date";
+
+const { url, title, pubDate } = Astro.props;
 ---
-<li><a href={url}>{title}</a></li>
+
+<li class="flex flex-col gap-1">
+    <p>{formatDate(pubDate)}</p>
+    <a href={url} class="text-3xl">{title}</a>
+</li>
