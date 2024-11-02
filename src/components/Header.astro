@@ -1,6 +1,19 @@
-<header class="flex flex-col gap-1">
-    <p class="text-7xl">Prasanth Karri</p>
-    <p class="text-small text-slate-600">
-        Curiosity killed a cat. Hope I'm not next in line.
-    </p>
+---
+import Link from "./Link.astro";
+---
+
+<header class="mb-16">
+  <nav>
+    <ul class="flex flex-row gap-4 justify-end">
+      <li>
+        <Link href="/">Home</Link>
+      </li>
+      <li>
+        <Link href="/blog">Blog</Link>
+      </li>
+      <li>
+        <Link href="/rss.xml">RSS</Link>
+      </li>
+    </ul>
+  </nav>
 </header>

@@ -7,19 +7,15 @@ const { pageTitle } = Astro.props;
 ---
 
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width" />
-        <meta name="generator" content={Astro.generator} />
-        <title>{pageTitle}</title>
-    </head>
-    <body class="bg-gray-50">
-        <main class="m-auto my-16 max-w-[692px] antialiased">
-            <Header />
-            <div class="my-8">
-                <slot />
-            </div>
-        </main>
-        <SpeedInsights />
-    </body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+  </head>
+  <body class="bg-gray-50 w-4/6 mx-auto my-4 h-screen">
+    <Header />
+    <slot />
+    <SpeedInsights />
+  </body>
 </html>

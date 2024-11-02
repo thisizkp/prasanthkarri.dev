@@ -1,21 +1,31 @@
 ---
+import Link from "../components/Link.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import BlogPost from "../components/BlogPost.astro";
-
-const allPosts = await Astro.glob("../pages/posts/*.md");
-const pageTitle = "Home";
 ---
 
-<BaseLayout pageTitle={pageTitle}>
-    <ul>
-        {
-            allPosts.map((post) => (
-                <BlogPost
-                    url={post.url}
-                    title={post.frontmatter.title}
-                    pubDate={post.frontmatter.pubDate}
-                />
-            ))
-        }
-    </ul>
+<BaseLayout>
+  <section class="flex flex-col gap-1">
+    <h1 class="text-6xl">
+      KP loves exploring all the way from programming bare metal to user
+      interfaces and everything in between.
+    </h1>
+    <p class="text-xl">Software Engineer, a Computer Science noob forever</p>
+    <p class="text-xl">
+      Currently, Engineering at <Link
+        href="https://odysseyenergysolutions.com"
+        external>Odyssey Energy Solutions</Link
+      >
+    </p>
+
+    <nav>
+      <ul>
+        <li class="flex flex-row gap-2">
+          <Link href="https://github.com/thisizkp" external>GitHub</Link>
+          <Link href="https://bsky.app/profile/prasanthkarri.dev" external
+            >Bluesky</Link
+          >
+        </li>
+      </ul>
+    </nav>
+  </section>
 </BaseLayout>
