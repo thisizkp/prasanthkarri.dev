@@ -1,6 +1,7 @@
 ---
 import Header from "../components/Header.astro";
 import "@fontsource/geist-sans";
+import SpeedInsights from "@vercel/speed-insights/astro";
 
 const { pageTitle } = Astro.props;
 ---
@@ -19,5 +20,6 @@ const { pageTitle } = Astro.props;
                 <slot />
             </div>
         </main>
+        <SpeedInsights />
     </body>
 </html>
