@@ -1,8 +1,9 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import BlogPost from "../../components/BlogPost.astro";
+import type { Post } from "../../types";
 
-const allPosts = await Astro.glob("./*.md");
+const allPosts = Object.values(import.meta.glob<Post>("./*.md", { eager: true }));
 const pageTitle = "Blog";
 ---
 
@@ -10,11 +11,7 @@ const pageTitle = "Blog";
   <ul class="flex flex-col gap-4">
     {
       allPosts.map((post) => (
-        <BlogPost
-          url={post.url}
-          title={post.frontmatter.title}
-          pubDate={post.frontmatter.pubDate}
-        />
+        <BlogPost url={post.url} title={post.frontmatter.title} pubDate={post.frontmatter.pubDate} />
       ))
     }
   </ul>
