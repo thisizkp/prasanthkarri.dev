@@ -4,8 +4,13 @@ const { href, external } = Astro.props;
 
 <a
   href={href}
-  class="underline underline-offset-8 decoration-slate-200 hover:decoration-blue-400 hover:text-blue-500"
+  class="group relative no-underline"
   {...external ? { target: "_blank", rel: "noopener noreferrer" } : {}}
 >
   <slot />
+  <span class="absolute -bottom-0.5 left-0 w-full h-[1px] bg-slate-200">
+    <span
+      class="absolute bottom-0 left-0 w-0 h-full bg-blue-400 transition-all duration-300 ease-in-out group-hover:w-full"
+    ></span>
+  </span>
 </a>
