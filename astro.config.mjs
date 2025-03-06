@@ -1,13 +1,13 @@
 import { defineConfig } from "astro/config";
-
-import tailwind from "@astrojs/tailwind";
+import tailwindcss from "@tailwindcss/vite"
 
 import vercel from "@astrojs/vercel";
 
-// https://astro.build/config
 export default defineConfig({
   site: "https://prasanthkarri.dev",
-  integrations: [tailwind()],
+  vite: {
+    plugins: [tailwindcss()]
+  },
   output: "server",
   adapter: vercel({
     webAnalytics: {
