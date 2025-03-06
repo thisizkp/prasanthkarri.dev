@@ -1,6 +1,9 @@
 ---
 import Link from "../components/Link.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+import { getCollection } from "astro:content";
+const posts = await getCollection("posts");
 ---
 
 <BaseLayout>
@@ -14,6 +17,19 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           >Odyssey Energy Solutions</Link
         >
       </p>
+    </div>
+
+    <div class="mt-8 flex flex-col gap-3">
+      <h2 class="text-2xl font-semibold">Recent Posts</h2>
+      <ul class="flex flex-col gap-2">
+        {
+          posts.map((post) => (
+            <li>
+              <Link href={`/${post.id}`}>{post.data.title}</Link>
+            </li>
+          ))
+        }
+      </ul>
     </div>
   </section>
 </BaseLayout>
