@@ -1,11 +1,17 @@
-import rss, { pagesGlobToRssItems } from '@astrojs/rss';
+import rss from '@astrojs/rss';
+import { getCollection } from 'astro:content';
 
 export async function GET(context) {
+  const posts = await getCollection('posts');
   return rss({
-    title: `KP's Writings`,
-    description: 'Ramblings',
+    title: 'KP’s Writings',
+    description: 'Whatever comes to my mind',
     site: context.site,
-    items: await pagesGlobToRssItems(import.meta.glob('./**/*.md')),
-    customData: `<language>en-us</language>`,
+    items: posts.map((post) => ({
+      title: post.data.title,
+      pubDate: post.data.pubDate,
+      description: post.data.description,
+      link: `/${post.id}/`,
+    })),
   });
 }
