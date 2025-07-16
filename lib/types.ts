@@ -2,7 +2,7 @@ export interface PostFrontmatter {
   title: string
   description: string
   pubDate: string
-  updatedData?: string
+  updatedDate?: string
   tags: string[]
 }
 

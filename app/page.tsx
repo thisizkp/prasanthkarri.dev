@@ -11,7 +11,7 @@ export default function Home() {
         {posts.map((post) => (
           <article key={post.slug} className="flex flex-col gap-2">
             <h2 className="text-xl">
-              <Link href={`/${post.slug}`} className="hover:underline">
+              <Link href={`/${post.slug}`}>
                 {post.frontmatter.title}
               </Link>
             </h2>

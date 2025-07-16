@@ -9,12 +9,12 @@ export default function Header() {
         </span>
         <ul className="flex flex-row gap-4">
           <li>
-            <Link href="https://github.com/thisizkp" external>
+            <Link href="https://github.com/thisizkp">
               GitHub
             </Link>
           </li>
           <li>
-            <Link href="https://bsky.app/profile/prasanthkarri.dev" external>
+            <Link href="https://bsky.app/profile/prasanthkarri.dev">
               Bluesky
             </Link>
           </li>
