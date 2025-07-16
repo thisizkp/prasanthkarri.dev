@@ -1,13 +1,13 @@
 import type { Metadata } from 'next'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import '@fontsource-variable/bricolage-grotesque'
-import './globals.css'
 import Header from '@/components/Header'
+import './globals.css'
 
 export const metadata: Metadata = {
   title: {
-    default: 'Blog',
-    template: '%s | Blog'
+    default: 'Prasanth Karri',
+    template: '%s | Prasanth Karri'
   },
   description: 'Personal blog',
 }
@@ -19,7 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-gray-50 w-5/6 xl:w-1/2 mx-auto my-4 h-screen">
+      <body className="bg-gray-50 w-full max-w-2xl mx-auto px-6 my-4 h-screen">
         <Header />
         {children}
         <SpeedInsights />

@@ -1,12 +1,14 @@
 import React from 'react'
+import { cn } from '@/lib/utils'
 
 interface LinkProps {
   href: string
   external?: boolean
   children: React.ReactNode
+  className?: string
 }
 
-export default function Link({ href, external, children }: LinkProps) {
+export default function Link({ href, external, children, className }: LinkProps) {
   const externalProps = external
     ? { target: '_blank', rel: 'noopener noreferrer' }
     : {}
@@ -14,7 +16,7 @@ export default function Link({ href, external, children }: LinkProps) {
   return (
     <a
       href={href}
-      className="group relative no-underline"
+      className={cn("group relative no-underline", className)}
       {...externalProps}
     >
       {children}
