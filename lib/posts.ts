@@ -45,3 +45,18 @@ export function getPostBySlug(slug: string): Post | undefined {
     return undefined
   }
 }
+
+export function getPostExcerpt(content: string, length: number = 150): string {
+  const plainText = content
+    .replace(/^#+\s+.*$/gm, '')
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+    .replace(/[*_`~]/g, '')
+    .replace(/\n+/g, ' ')
+    .trim()
+  
+  if (plainText.length <= length) {
+    return plainText
+  }
+  
+  return plainText.substring(0, length).replace(/\s+\S*$/, '') + '...'
+}

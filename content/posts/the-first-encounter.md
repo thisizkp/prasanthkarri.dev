@@ -1,6 +1,5 @@
 ---
 title: 'The First Encounter'
-description: 'How it began'
 pubDate: 2025-03-06
 tags: ["reflection"]
 ---

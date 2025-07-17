@@ -1,5 +1,5 @@
 import Link from '@/components/Link'
-import { getAllPosts } from '@/lib/posts'
+import { getAllPosts, getPostExcerpt } from '@/lib/posts'
 
 export default function Home() {
   const posts = getAllPosts()
@@ -15,9 +15,7 @@ export default function Home() {
                 {post.frontmatter.title}
               </Link>
             </h2>
-            {post.frontmatter.description && (
-              <p className="text-gray-600">{post.frontmatter.description}</p>
-            )}
+            <p className="text-gray-600">{getPostExcerpt(post.content)}</p>
           </article>
         ))}
       </div>

@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation'
-import { getAllPosts, getPostBySlug } from '@/lib/posts'
+import { getAllPosts, getPostBySlug, getPostExcerpt } from '@/lib/posts'
 import { remark } from 'remark'
 import html from 'remark-html'
 
@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: PageProps) {
 
   return {
     title: post.frontmatter.title,
-    description: post.frontmatter.description,
+    description: getPostExcerpt(post.content),
   }
 }
 

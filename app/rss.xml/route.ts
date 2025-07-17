@@ -1,5 +1,5 @@
 import RSS from 'rss'
-import { getAllPosts } from '@/lib/posts'
+import { getAllPosts, getPostExcerpt } from '@/lib/posts'
 
 export const dynamic = 'force-static'
 
@@ -18,7 +18,7 @@ export async function GET() {
   posts.forEach((post) => {
     feed.item({
       title: post.frontmatter.title,
-      description: post.frontmatter.description,
+      description: getPostExcerpt(post.content),
       url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://prasanthkarri.dev'}/${post.slug}`,
       date: new Date(post.frontmatter.pubDate),
     })

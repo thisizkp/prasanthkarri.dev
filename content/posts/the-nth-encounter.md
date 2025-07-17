@@ -1,6 +1,5 @@
 ---
 title: 'The Nth Encounter'
-description: 'How it is going'
 pubDate: 2025-04-16
 tags: ["reflection"]
 ---
