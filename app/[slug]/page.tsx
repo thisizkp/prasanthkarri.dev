@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation'
 import { getAllPosts, getPostBySlug, getPostExcerpt } from '@/lib/posts'
 import { remark } from 'remark'
 import html from 'remark-html'
+import NewsletterForm from '@/components/NewsletterForm'
 
 interface PageProps {
   params: Promise<{
@@ -44,12 +45,15 @@ export default async function PostPage({ params }: PageProps) {
   const contentHtml = processedContent.toString()
 
   return (
-    <>
-      <header className="text-5xl mb-8">{post.frontmatter.title}</header>
-      <div 
-        className="text-lg/relaxed font-light flex flex-col gap-8 prose prose-lg max-w-none"
-        dangerouslySetInnerHTML={{ __html: contentHtml }}
-      />
-    </>
+    <div className="flex flex-col h-full">
+      <div className="flex-1">
+        <header className="text-5xl mb-8">{post.frontmatter.title}</header>
+        <div 
+          className="text-lg/relaxed font-light flex flex-col gap-8 prose prose-lg max-w-none"
+          dangerouslySetInnerHTML={{ __html: contentHtml }}
+        />
+      </div>
+      <NewsletterForm />
+    </div>
   )
 }

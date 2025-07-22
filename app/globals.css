@@ -3,3 +3,11 @@
 @theme {
     --font-sans: "Bricolage Grotesque Variable", "sans-serif";
 }
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
