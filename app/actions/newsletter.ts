@@ -4,7 +4,6 @@ import { z } from 'zod'
 import { env } from '@/lib/env'
 
 const subscribeSchema = z.object({
-  name: z.string().min(1, 'Name is required'),
   email: z.string().email('Invalid email address'),
 })
 
@@ -13,7 +12,6 @@ export async function subscribeToNewsletter(
   formData: FormData
 ) {
   const rawData = {
-    name: formData.get('name'),
     email: formData.get('email'),
   }
 
@@ -27,7 +25,7 @@ export async function subscribeToNewsletter(
     }
   }
 
-  const { name, email } = validatedFields.data
+  const { email } = validatedFields.data
 
   try {
     const response = await fetch('https://api.useplunk.com/v1/track', {
@@ -39,9 +37,6 @@ export async function subscribeToNewsletter(
       body: JSON.stringify({
         event: 'newsletter-subscribe',
         email: email,
-        data: {
-          name: name,
-        },
       }),
     })
 

@@ -37,20 +37,6 @@ export default function NewsletterForm() {
         
         <form action={formAction} className="mt-6 space-y-3">
         <div>
-          <label htmlFor="name" className="sr-only">
-            Name
-          </label>
-          <input
-            id="name"
-            name="name"
-            type="text"
-            placeholder="Your name"
-            className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
-            required
-          />
-        </div>
-        
-        <div>
           <label htmlFor="email" className="sr-only">
             Email
           </label>
