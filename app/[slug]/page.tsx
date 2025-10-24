@@ -47,8 +47,29 @@ export default async function PostPage({ params }: PageProps) {
   return (
     <div className="flex flex-col h-full">
       <div className="flex-1">
-        <header className="text-5xl mb-8">{post.frontmatter.title}</header>
-        <div 
+        <header className="mb-8">
+          <h1 className="text-5xl">{post.frontmatter.title}</h1>
+          <div className="mt-4 text-sm text-gray-500">
+            {new Date(post.frontmatter.pubDate).toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric'
+            })}
+            {post.frontmatter.updatedDate && (
+              <>
+                <span className="mx-2">·</span>
+                <span>
+                  Updated {new Date(post.frontmatter.updatedDate).toLocaleDateString('en-US', {
+                    month: 'short',
+                    day: 'numeric',
+                    year: 'numeric'
+                  })}
+                </span>
+              </>
+            )}
+          </div>
+        </header>
+        <div
           className="text-lg/relaxed font-light flex flex-col gap-8 prose prose-lg max-w-none"
           dangerouslySetInnerHTML={{ __html: contentHtml }}
         />

@@ -15,6 +15,13 @@ export default function Home() {
                 {post.frontmatter.title}
               </Link>
             </h2>
+            <time className="text-sm text-gray-500">
+              {new Date(post.frontmatter.pubDate).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+              })}
+            </time>
             <p className="text-gray-600">{getPostExcerpt(post.content)}</p>
           </article>
         ))}
