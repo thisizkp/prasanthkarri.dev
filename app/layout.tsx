@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import '@fontsource-variable/bricolage-grotesque'
 import Header from '@/components/Header'
@@ -24,6 +25,7 @@ export default function RootLayout({
         <main className="flex-1">
           {children}
         </main>
+        <Analytics />
         <SpeedInsights />
       </body>
     </html>
