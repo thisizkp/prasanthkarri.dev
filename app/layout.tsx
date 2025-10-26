@@ -11,6 +11,9 @@ export const metadata: Metadata = {
     template: '%s | Prasanth Karri'
   },
   description: 'Personal blog',
+  icons: {
+    icon: '/favicon.svg',
+  },
 }
 
 export default function RootLayout({

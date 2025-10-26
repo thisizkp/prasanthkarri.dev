@@ -1,12 +1,14 @@
 import Link from './Link'
 import { Github, Rss } from 'lucide-react'
 import { BlueskyIcon } from './BlueskyIcon'
+import Image from 'next/image'
 
 export default function Header() {
   return (
     <header className="mt-8 mb-16">
       <nav className="flex items-center justify-between">
-        <span className="text-xl">
+        <span className="text-xl flex items-center gap-3">
+          <Image src="/logo-v2.svg" alt="KP" width={32} height={32} />
           <Link href="/">Prasanth Karri</Link>
         </span>
         <ul className="flex flex-row gap-4">

@@ -1,0 +1,6 @@
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Minimal bracket-style logo representing code/systems -->
+  <path d="M11 8 L7 8 L7 32 L11 32" stroke="#1f2937" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M29 8 L33 8 L33 32 L29 32" stroke="#1f2937" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="20" y="21" dominant-baseline="middle" text-anchor="middle" fill="#1f2937" font-family="monospace" font-size="16" font-weight="700">KP</text>
+</svg>

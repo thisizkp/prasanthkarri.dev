@@ -1,11 +1,29 @@
 import Link from '@/components/Link'
 import { getAllPosts, getPostExcerpt } from '@/lib/posts'
+import Image from 'next/image'
 
 export default function Home() {
   const posts = getAllPosts()
 
   return (
     <section className="flex flex-col gap-8">
+      <div className="mb-8 flex items-start gap-4">
+        <Image
+          src="/avatar.png"
+          alt="KP"
+          width={80}
+          height={80}
+          className="rounded-full flex-shrink-0"
+        />
+        <div className="flex flex-col gap-4 text-lg text-gray-700">
+          <p>
+            👋 Hey, I&apos;m KP. Been interested in how things work under the hood for as long as I can remember.
+          </p>
+          <p>
+            Spent years doing web development (mostly frontend, some backend, minimal DevOps). Currently exploring systems programming and writing about what I learn here.
+          </p>
+        </div>
+      </div>
       <h1 className="text-2xl font-semibold">Writing</h1>
       <div className="flex flex-col gap-8">
         {posts.map((post) => (
