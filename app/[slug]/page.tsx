@@ -48,8 +48,8 @@ export default async function PostPage({ params }: PageProps) {
     <div className="flex flex-col h-full">
       <div className="flex-1">
         <header className="mb-8">
-          <h1 className="text-5xl">{post.frontmatter.title}</h1>
-          <div className="mt-4 text-sm text-gray-500">
+          <h1 className="text-5xl text-gray-900 dark:text-zinc-50">{post.frontmatter.title}</h1>
+          <div className="mt-4 text-sm text-gray-500 dark:text-zinc-400">
             {new Date(post.frontmatter.pubDate).toLocaleDateString('en-US', {
               year: 'numeric',
               month: 'long',
@@ -70,7 +70,7 @@ export default async function PostPage({ params }: PageProps) {
           </div>
         </header>
         <div
-          className="text-lg/relaxed font-light flex flex-col gap-8 prose prose-lg max-w-none"
+          className="text-lg/relaxed font-light flex flex-col gap-8 prose prose-lg dark:prose-invert max-w-none"
           dangerouslySetInnerHTML={{ __html: contentHtml }}
         />
       </div>

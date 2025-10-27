@@ -1,17 +1,18 @@
 import Link from './Link'
 import { Github, Rss } from 'lucide-react'
 import { BlueskyIcon } from './BlueskyIcon'
-import Image from 'next/image'
+import { ThemeToggle } from './ThemeToggle'
+import { Logo } from './Logo'
 
 export default function Header() {
   return (
     <header className="mt-8 mb-16">
       <nav className="flex items-center justify-between">
         <span className="text-xl flex items-center gap-3">
-          <Image src="/logo-v2.svg" alt="KP" width={32} height={32} />
+          <Logo />
           <Link href="/">Prasanth Karri</Link>
         </span>
-        <ul className="flex flex-row gap-4">
+        <ul className="flex flex-row gap-4 items-center">
           <li>
             <Link href="https://github.com/thisizkp" aria-label="GitHub" isIcon>
               <Github className="w-5 h-5" />
@@ -26,6 +27,9 @@ export default function Header() {
             <Link href="/rss.xml" aria-label="RSS Feed" isIcon>
               <Rss className="w-5 h-5" />
             </Link>
+          </li>
+          <li>
+            <ThemeToggle />
           </li>
         </ul>
       </nav>

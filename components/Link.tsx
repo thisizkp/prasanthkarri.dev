@@ -1,17 +1,21 @@
 import React from 'react'
 import NextLink from 'next/link'
+import { cn } from '@/lib/utils'
 
 interface LinkProps {
   href: string
   children: React.ReactNode
   isIcon?: boolean
   'aria-label'?: string
+  className?: string
 }
 
-export default function Link({ href, children, isIcon = false, 'aria-label': ariaLabel }: LinkProps) {
-  const linkClasses = isIcon 
-    ? "group relative no-underline text-gray-700 hover:text-blue-400 transition-colors duration-300"
-    : "group relative no-underline"
+export default function Link({ href, children, isIcon = false, 'aria-label': ariaLabel, className }: LinkProps) {
+  const linkClasses = cn(
+    "group relative no-underline",
+    isIcon && "inline-flex text-gray-700 dark:text-zinc-300 hover:text-blue-400 transition-colors duration-300",
+    className
+  )
   
   const hoverEffect = !isIcon ? (
     <span className="absolute -bottom-0.5 left-0 w-full h-[1px]">

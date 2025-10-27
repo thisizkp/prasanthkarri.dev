@@ -15,7 +15,7 @@ export default function Home() {
           height={80}
           className="rounded-full flex-shrink-0"
         />
-        <div className="flex flex-col gap-4 text-lg text-gray-700">
+        <div className="flex flex-col gap-4 text-lg text-gray-700 dark:text-zinc-200">
           <p>
             👋 Hey, I&apos;m KP. Been interested in how things work under the hood for as long as I can remember.
           </p>
@@ -24,7 +24,7 @@ export default function Home() {
           </p>
         </div>
       </div>
-      <h1 className="text-2xl font-semibold">Writing</h1>
+      <h1 className="text-2xl font-semibold text-gray-900 dark:text-zinc-50">Writing</h1>
       <div className="flex flex-col gap-8">
         {posts.map((post) => (
           <article key={post.slug} className="flex flex-col gap-2">
@@ -33,14 +33,14 @@ export default function Home() {
                 {post.frontmatter.title}
               </Link>
             </h2>
-            <time className="text-sm text-gray-500">
+            <time className="text-sm text-gray-500 dark:text-zinc-400">
               {new Date(post.frontmatter.pubDate).toLocaleDateString('en-US', {
                 year: 'numeric',
                 month: 'long',
                 day: 'numeric'
               })}
             </time>
-            <p className="text-gray-600">{getPostExcerpt(post.content)}</p>
+            <p className="text-gray-600 dark:text-zinc-300">{getPostExcerpt(post.content)}</p>
           </article>
         ))}
       </div>
