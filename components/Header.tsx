@@ -7,7 +7,7 @@ import { Logo } from './Logo'
 export default function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-gray-50 dark:bg-zinc-800">
-      <nav className="max-w-2xl mx-auto px-6 pt-6 pb-4 flex items-center justify-between">
+      <nav className="max-w-2xl mx-auto px-6 pt-8 pb-6 flex items-center justify-between">
         <span className="text-xl flex items-center gap-3">
           <Logo />
           <Link href="/">Prasanth Karri</Link>

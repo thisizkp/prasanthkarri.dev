@@ -25,7 +25,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="bg-gray-50 dark:bg-zinc-800 w-full max-w-2xl mx-auto px-6 pt-24 pb-16 min-h-screen flex flex-col">
+      <body className="bg-gray-50 dark:bg-zinc-800 w-full max-w-2xl mx-auto px-6 pt-28 pb-16 min-h-screen flex flex-col">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />
           <main className="flex-1">
