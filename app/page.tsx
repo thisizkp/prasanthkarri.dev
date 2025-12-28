@@ -2,7 +2,8 @@ import Link from '@/components/Link'
 import { getAllPosts, getPostExcerpt } from '@/lib/posts'
 import Image from 'next/image'
 
-export default function Home() {
+export default async function Home() {
+  'use cache'
   const posts = getAllPosts()
 
   return (

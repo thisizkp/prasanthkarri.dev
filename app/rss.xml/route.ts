@@ -1,8 +1,6 @@
 import RSS from 'rss'
 import { getAllPosts, getPostExcerpt } from '@/lib/posts'
 
-export const dynamic = 'force-static'
-
 export async function GET() {
   const posts = getAllPosts()
   
