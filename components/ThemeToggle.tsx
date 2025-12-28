@@ -15,7 +15,7 @@ export function ThemeToggle() {
   if (!isHydrated) {
     return (
       <button
-        className="inline-flex text-gray-700 dark:text-zinc-300 hover:text-blue-400 transition-colors duration-300"
+        className="inline-flex p-2 -m-2 text-gray-700 dark:text-zinc-300 hover:text-blue-400 transition-colors duration-300"
         aria-label="Toggle theme"
       >
         <Moon className="w-5 h-5" />
@@ -26,7 +26,7 @@ export function ThemeToggle() {
   return (
     <button
       onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-      className="inline-flex text-gray-700 dark:text-zinc-300 hover:text-blue-400 transition-colors duration-300"
+      className="inline-flex p-2 -m-2 text-gray-700 dark:text-zinc-300 hover:text-blue-400 transition-colors duration-300"
       aria-label="Toggle theme"
     >
       {theme === 'dark' ? (

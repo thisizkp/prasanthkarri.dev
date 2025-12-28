@@ -13,7 +13,7 @@ interface LinkProps {
 export default function Link({ href, children, isIcon = false, 'aria-label': ariaLabel, className }: LinkProps) {
   const linkClasses = cn(
     "group relative no-underline",
-    isIcon && "inline-flex text-gray-700 dark:text-zinc-300 hover:text-blue-400 transition-colors duration-300",
+    isIcon && "inline-flex p-2 -m-2 text-gray-700 dark:text-zinc-300 hover:text-blue-400 transition-colors duration-300",
     className
   )
   
