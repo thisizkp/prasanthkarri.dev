@@ -32,6 +32,7 @@ export async function generateMetadata({ params }: PageProps) {
 }
 
 export default async function PostPage({ params }: PageProps) {
+  'use cache'
   const { slug } = await params
   const post = getPostBySlug(slug)
 
