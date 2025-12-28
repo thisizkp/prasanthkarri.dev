@@ -71,7 +71,7 @@ export default async function PostPage({ params }: PageProps) {
           </div>
         </header>
         <div
-          className="prose prose-lg dark:prose-invert max-w-none font-light"
+          className="text-lg prose prose-lg dark:prose-invert max-w-none font-light"
           dangerouslySetInnerHTML={{ __html: contentHtml }}
         />
       </div>
