@@ -13,3 +13,16 @@ html {
 body {
   height: 100%;
 }
+
+/* Enhanced prose typography for better readability */
+.prose {
+  line-height: 1.75;
+}
+
+.prose p {
+  margin-bottom: 1.75em;
+}
+
+.prose p:last-child {
+  margin-bottom: 0;
+}
