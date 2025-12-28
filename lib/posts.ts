@@ -1,6 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
+import readingTime from 'reading-time'
 import { Post, PostFrontmatter } from './types'
 
 const postsDirectory = path.join(process.cwd(), 'content/posts')
@@ -44,6 +45,11 @@ export function getPostBySlug(slug: string): Post | undefined {
   } catch {
     return undefined
   }
+}
+
+export function getReadingTime(content: string): number {
+  const stats = readingTime(content)
+  return Math.max(1, Math.ceil(stats.minutes))
 }
 
 export function getPostExcerpt(content: string, length: number = 150): string {

@@ -16,7 +16,7 @@ export default async function Home() {
           height={80}
           className="rounded-full flex-shrink-0"
         />
-        <div className="flex flex-col gap-4 text-lg text-gray-700 dark:text-zinc-200">
+        <div className="flex flex-col gap-4 text-lg leading-relaxed text-gray-700 dark:text-zinc-300">
           <p>
             👋 Hey, I&apos;m KP. Been interested in how things work under the hood for as long as I can remember.
           </p>
@@ -41,7 +41,7 @@ export default async function Home() {
                 day: 'numeric'
               })}
             </time>
-            <p className="text-gray-600 dark:text-zinc-300">{getPostExcerpt(post.content)}</p>
+            <p className="text-gray-600 dark:text-zinc-300 leading-relaxed">{getPostExcerpt(post.content)}</p>
           </article>
         ))}
       </div>

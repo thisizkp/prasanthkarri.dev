@@ -4,6 +4,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 import '@fontsource-variable/bricolage-grotesque'
 import Header from '@/components/Header'
 import { ThemeProvider } from '@/components/ThemeProvider'
+import { BackToTop } from '@/components/BackToTop'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -24,12 +25,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="bg-gray-50 dark:bg-zinc-800 w-full max-w-2xl mx-auto px-6 pt-4 pb-16 min-h-screen flex flex-col">
+      <body className="bg-gray-50 dark:bg-zinc-800 w-full max-w-2xl mx-auto px-6 pt-28 pb-16 min-h-screen flex flex-col">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />
           <main className="flex-1">
             {children}
           </main>
+          <BackToTop />
           <Analytics />
           <SpeedInsights />
         </ThemeProvider>
