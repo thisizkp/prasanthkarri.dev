@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation'
-import { getAllPosts, getPostBySlug, getPostExcerpt } from '@/lib/posts'
+import { getAllPosts, getPostBySlug, getPostExcerpt, getReadingTime } from '@/lib/posts'
 import { remark } from 'remark'
 import html from 'remark-html'
 import NewsletterForm from '@/components/NewsletterForm'
@@ -50,15 +50,17 @@ export default async function PostPage({ params }: PageProps) {
       <div className="flex-1">
         <header className="mb-8">
           <h1 className="text-5xl text-gray-900 dark:text-zinc-50">{post.frontmatter.title}</h1>
-          <div className="mt-4 text-sm text-gray-500 dark:text-zinc-400">
-            {new Date(post.frontmatter.pubDate).toLocaleDateString('en-US', {
+          <div className="mt-4 text-sm text-gray-500 dark:text-zinc-400 flex flex-wrap items-center gap-x-2">
+            <span>{new Date(post.frontmatter.pubDate).toLocaleDateString('en-US', {
               year: 'numeric',
               month: 'long',
               day: 'numeric'
-            })}
+            })}</span>
+            <span>·</span>
+            <span>{getReadingTime(post.content)} min read</span>
             {post.frontmatter.updatedDate && (
               <>
-                <span className="mx-2">·</span>
+                <span>·</span>
                 <span>
                   Updated {new Date(post.frontmatter.updatedDate).toLocaleDateString('en-US', {
                     month: 'short',

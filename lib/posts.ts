@@ -46,6 +46,23 @@ export function getPostBySlug(slug: string): Post | undefined {
   }
 }
 
+export function getReadingTime(content: string): number {
+  // Remove markdown syntax for accurate word count
+  const plainText = content
+    .replace(/^#+\s+.*$/gm, '') // Remove headings
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // Remove links, keep text
+    .replace(/[*_`~]/g, '') // Remove formatting
+    .replace(/```[\s\S]*?```/g, '') // Remove code blocks
+    .replace(/`[^`]+`/g, '') // Remove inline code
+    .trim()
+
+  const words = plainText.split(/\s+/).filter(word => word.length > 0)
+  const wordsPerMinute = 200
+  const minutes = Math.ceil(words.length / wordsPerMinute)
+
+  return Math.max(1, minutes) // Minimum 1 minute
+}
+
 export function getPostExcerpt(content: string, length: number = 150): string {
   const plainText = content
     .replace(/^#+\s+.*$/gm, '')
