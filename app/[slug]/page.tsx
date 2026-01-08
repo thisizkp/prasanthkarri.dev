@@ -47,7 +47,7 @@ export default async function PostPage({ params }: PageProps) {
 
   return (
     <div className="flex flex-col h-full">
-      <div className="flex-1">
+      <article className="flex-1">
         <header className="mb-8">
           <h1 className="text-5xl text-gray-900 dark:text-zinc-50">{post.frontmatter.title}</h1>
           <div className="mt-4 text-sm text-gray-500 dark:text-zinc-400 flex flex-wrap items-center gap-x-2">
@@ -76,7 +76,7 @@ export default async function PostPage({ params }: PageProps) {
           className="text-lg prose prose-lg dark:prose-invert max-w-none font-light"
           dangerouslySetInnerHTML={{ __html: contentHtml }}
         />
-      </div>
+      </article>
       <NewsletterForm />
     </div>
   )

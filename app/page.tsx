@@ -7,7 +7,7 @@ export default async function Home() {
   const posts = getAllPosts()
 
   return (
-    <section className="flex flex-col gap-8">
+    <section aria-labelledby="writing-heading" className="flex flex-col gap-8">
       <div className="mb-8 flex items-start gap-4">
         <Image
           src="/avatar.png"
@@ -25,7 +25,7 @@ export default async function Home() {
           </p>
         </div>
       </div>
-      <h1 className="text-2xl font-semibold text-gray-900 dark:text-zinc-50">Writing</h1>
+      <h1 id="writing-heading" className="text-2xl font-semibold text-gray-900 dark:text-zinc-50">Writing</h1>
       <div className="flex flex-col gap-8">
         {posts.map((post) => (
           <article key={post.slug} className="flex flex-col gap-2">
