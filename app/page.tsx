@@ -8,22 +8,20 @@ export default async function Home() {
 
   return (
     <section aria-labelledby="writing-heading" className="flex flex-col gap-8">
-      <div className="mb-8 flex items-start gap-4">
+      <div className="mb-8 text-lg leading-relaxed text-gray-700 dark:text-zinc-300">
         <Image
           src="/avatar.png"
           alt="KP"
           width={80}
           height={80}
-          className="rounded-full flex-shrink-0"
+          className="float-left mr-4 mb-2 rounded-full"
         />
-        <div className="flex flex-col gap-4 text-lg leading-relaxed text-gray-700 dark:text-zinc-300">
-          <p>
-            👋 Hey, I&apos;m KP. Been interested in how things work under the hood for as long as I can remember.
-          </p>
-          <p>
-            Spent years doing web development (mostly frontend, some backend, minimal DevOps). Currently exploring systems programming and writing about what I learn here.
-          </p>
-        </div>
+        <p>
+          👋 Hey, I&apos;m KP. Been interested in how things work under the hood for as long as I can remember.
+        </p>
+        <p className="mt-4">
+          Spent years doing web development (mostly frontend, some backend, minimal DevOps). Currently exploring systems programming and writing about what I learn here.
+        </p>
       </div>
       <h1 id="writing-heading" className="text-2xl font-semibold text-gray-900 dark:text-zinc-50">Writing</h1>
       <div className="flex flex-col gap-8">
