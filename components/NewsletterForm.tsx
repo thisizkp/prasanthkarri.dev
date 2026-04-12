@@ -28,7 +28,7 @@ export default function NewsletterForm() {
   const [state, formAction] = useActionState(subscribeToNewsletter, initialState)
   
   return (
-    <aside aria-labelledby="newsletter-heading" className="mt-16 mb-16 border-t border-gray-200 dark:border-zinc-700 pt-8">
+    <aside aria-labelledby="newsletter-heading" className="mt-8 mb-16 border-t border-gray-200 dark:border-zinc-700 pt-8">
       <div className="max-w-md">
         <h2 id="newsletter-heading" className="text-lg font-medium text-gray-900 dark:text-zinc-50">Stay updated</h2>
         <p className="mt-1 text-sm text-gray-600 dark:text-zinc-400">

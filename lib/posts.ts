@@ -47,6 +47,16 @@ export function getPostBySlug(slug: string): Post | undefined {
   }
 }
 
+export function getAdjacentPosts(slug: string): { prev: Post | null; next: Post | null } {
+  const posts = getAllPosts()
+  const index = posts.findIndex((p) => p.slug === slug)
+  if (index === -1) return { prev: null, next: null }
+  return {
+    next: posts[index - 1] ?? null,
+    prev: posts[index + 1] ?? null,
+  }
+}
+
 export function getReadingTime(content: string): number {
   const stats = readingTime(content)
   return Math.max(1, Math.ceil(stats.minutes))
