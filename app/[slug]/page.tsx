@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation'
-import { getAllPosts, getPostBySlug, getPostExcerpt, getReadingTime } from '@/lib/posts'
+import Link from 'next/link'
+import { getAllPosts, getAdjacentPosts, getPostBySlug, getPostExcerpt, getReadingTime } from '@/lib/posts'
 import { remark } from 'remark'
 import html from 'remark-html'
 import NewsletterForm from '@/components/NewsletterForm'
@@ -28,6 +29,13 @@ export async function generateMetadata({ params }: PageProps) {
   return {
     title: post.frontmatter.title,
     description: getPostExcerpt(post.content),
+    openGraph: {
+      title: post.frontmatter.title,
+      description: getPostExcerpt(post.content),
+      type: 'article',
+      publishedTime: post.frontmatter.pubDate,
+      ...(post.frontmatter.updatedDate && { modifiedTime: post.frontmatter.updatedDate }),
+    },
   }
 }
 
@@ -44,6 +52,8 @@ export default async function PostPage({ params }: PageProps) {
     .use(html)
     .process(post.content)
   const contentHtml = processedContent.toString()
+
+  const { prev, next } = getAdjacentPosts(slug)
 
   return (
     <div className="flex flex-col h-full">
@@ -78,6 +88,26 @@ export default async function PostPage({ params }: PageProps) {
         />
       </article>
       <NewsletterForm />
+      {(prev || next) && (
+        <nav className="flex justify-between border-t border-gray-200 dark:border-zinc-700 py-8">
+          <div>
+            {prev && (
+              <Link href={`/${prev.slug}`} className="group">
+                <span className="block text-sm text-gray-400 dark:text-zinc-500 mb-1">&larr; Previous</span>
+                <span className="text-gray-700 dark:text-zinc-300 group-hover:text-gray-900 dark:group-hover:text-zinc-100">{prev.frontmatter.title}</span>
+              </Link>
+            )}
+          </div>
+          <div className="text-right">
+            {next && (
+              <Link href={`/${next.slug}`} className="group">
+                <span className="block text-sm text-gray-400 dark:text-zinc-500 mb-1">Next &rarr;</span>
+                <span className="text-gray-700 dark:text-zinc-300 group-hover:text-gray-900 dark:group-hover:text-zinc-100">{next.frontmatter.title}</span>
+              </Link>
+            )}
+          </div>
+        </nav>
+      )}
     </div>
   )
 }
