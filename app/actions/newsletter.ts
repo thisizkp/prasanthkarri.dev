@@ -28,20 +28,28 @@ export async function subscribeToNewsletter(
   const { email } = validatedFields.data
 
   try {
-    const response = await fetch('https://api.useplunk.com/v1/track', {
+    const response = await fetch('https://api.buttondown.com/v1/subscribers', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${env.PLUNK_API_KEY}`,
+        Authorization: `Token ${env.BUTTONDOWN_API_KEY}`,
       },
       body: JSON.stringify({
-        event: 'newsletter-subscribe',
-        email: email,
+        email_address: email,
+        type: 'regular',
       }),
     })
 
+    if (response.status === 409) {
+      return {
+        success: true,
+        message: "You're already subscribed!",
+        error: '',
+      }
+    }
+
     if (!response.ok) {
-      console.error('Plunk API error:', await response.text())
+      console.error('Buttondown API error:', await response.text())
       return {
         error: 'Failed to subscribe. Please try again later.',
         success: false,

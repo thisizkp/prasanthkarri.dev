@@ -1,7 +1,7 @@
 import { z } from 'zod'
 
 const envSchema = z.object({
-  PLUNK_API_KEY: z.string().min(1, 'PLUNK_API_KEY is required'),
+  BUTTONDOWN_API_KEY: z.string().min(1, 'BUTTONDOWN_API_KEY is required'),
 })
 
 function validateEnv() {
