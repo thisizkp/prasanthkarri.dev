@@ -17,13 +17,9 @@ export default async function Home() {
           className="float-left mr-4 mb-2 rounded-full"
         />
         <p>
-          👋 Hey, I&apos;m KP. Been interested in how things work under the hood for as long as I can remember.
-        </p>
-        <p className="mt-4">
-          Spent years doing web development (mostly frontend, some backend, minimal DevOps). Currently exploring systems programming and writing about what I learn here.
+          Hey, I&apos;m KP. Been interested in how things work under the hood for as long as I can remember — systems, math, whatever pulls me. Writing about what I learn here.
         </p>
       </div>
-      <h1 id="writing-heading" className="text-2xl font-semibold text-gray-900 dark:text-zinc-50">Writing</h1>
       <div className="flex flex-col gap-8">
         {posts.map((post) => (
           <article key={post.slug} className="flex flex-col gap-2">
