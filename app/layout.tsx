@@ -8,13 +8,22 @@ import { BackToTop } from '@/components/BackToTop'
 import './globals.css'
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://prasanthkarri.dev'),
   title: {
     default: 'Prasanth Karri',
     template: '%s | Prasanth Karri'
   },
-  description: 'Personal blog',
+  description: 'Personal blog by KP — systems, math, and whatever pulls me.',
   icons: {
     icon: '/favicon.svg',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    siteName: 'Prasanth Karri',
+  },
+  twitter: {
+    card: 'summary_large_image',
   },
 }
 
@@ -25,7 +34,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="bg-gray-50 dark:bg-zinc-800 w-full max-w-2xl mx-auto px-6 pt-28 pb-16 min-h-screen flex flex-col">
+      <body className="bg-gray-50 dark:bg-zinc-800 w-full max-w-2xl mx-auto px-6 pt-8 pb-16 min-h-screen flex flex-col">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <a
             href="#main"
