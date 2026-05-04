@@ -1,0 +1,82 @@
+---
+import { getCollection, render } from 'astro:content'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import NewsletterForm from '@/components/NewsletterForm.astro'
+import {
+  formatDate,
+  getAdjacentPosts,
+  getPostExcerpt,
+  getReadingTime,
+  sortPosts,
+  type Post,
+} from '@/lib/posts'
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts')
+
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }))
+}
+
+const { post } = Astro.props as { post: Post }
+const posts = sortPosts(await getCollection('posts'))
+const { Content } = await render(post)
+const { prev, next } = getAdjacentPosts(posts, post.id)
+const description = getPostExcerpt(post.body ?? '')
+const readingMinutes = getReadingTime(post.body ?? '')
+---
+
+<BaseLayout
+  title={post.data.title}
+  description={description}
+  type="article"
+  publishedTime={post.data.pubDate.toISOString()}
+  modifiedTime={post.data.updatedDate?.toISOString()}
+>
+  <div>
+    <article>
+      <header class="post-header">
+        <h1>{post.data.title}</h1>
+        <div class="post-meta">
+          <time datetime={post.data.pubDate.toISOString()}>{formatDate(post.data.pubDate)}</time>
+          <span aria-hidden="true">·</span>
+          <span>{readingMinutes} min read</span>
+          {post.data.updatedDate && (
+            <>
+              <span aria-hidden="true">·</span>
+              <span>Updated {formatDate(post.data.updatedDate, { month: 'short' })}</span>
+            </>
+          )}
+        </div>
+      </header>
+      <div class="prose">
+        <Content />
+      </div>
+    </article>
+
+    <NewsletterForm />
+
+    {(prev || next) && (
+      <nav class="post-nav" aria-label="Post navigation">
+        <div>
+          {prev && (
+            <a class="link" href={`/${prev.id}`}>
+              <span class="post-nav-label">← Previous</span>
+              <span>{prev.data.title}</span>
+            </a>
+          )}
+        </div>
+        <div class="post-nav-next">
+          {next && (
+            <a class="link" href={`/${next.id}`}>
+              <span class="post-nav-label">Next →</span>
+              <span>{next.data.title}</span>
+            </a>
+          )}
+        </div>
+      </nav>
+    )}
+  </div>
+</BaseLayout>

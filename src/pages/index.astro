@@ -1,0 +1,30 @@
+---
+import { getCollection } from 'astro:content'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import { formatDate, getPostExcerpt, sortPosts } from '@/lib/posts'
+
+const posts = sortPosts(await getCollection('posts'))
+---
+
+<BaseLayout>
+  <section aria-labelledby="writing-heading">
+    <h1 id="writing-heading" class="sr-only">Writing</h1>
+    <div class="intro">
+      <img class="avatar" src="/avatar.png" alt="KP" width="80" height="80" />
+      <p>
+        Hey, I'm KP. Been interested in how things work under the hood for as long as I can remember - systems, math, whatever pulls me. Writing about what I learn here.
+      </p>
+    </div>
+    <div class="post-list">
+      {posts.map((post) => (
+        <article class="post-card">
+          <h2>
+            <a class="link" href={`/${post.id}`}>{post.data.title}</a>
+          </h2>
+          <time datetime={post.data.pubDate.toISOString()}>{formatDate(post.data.pubDate)}</time>
+          <p>{getPostExcerpt(post.body ?? '')}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

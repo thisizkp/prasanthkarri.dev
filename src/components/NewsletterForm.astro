@@ -1,0 +1,25 @@
+---
+const username = import.meta.env.PUBLIC_BUTTONDOWN_USERNAME
+const isConfigured = Boolean(username && !username.startsWith('your_'))
+const action = isConfigured
+  ? `https://buttondown.com/api/emails/embed-subscribe/${username}`
+  : '#'
+---
+
+<aside aria-labelledby="newsletter-heading" class="newsletter">
+  <div class="newsletter-inner">
+    <h2 id="newsletter-heading">Stay updated</h2>
+    <p>Get notified when I publish something new.</p>
+
+    <form action={action} method="post">
+      <input type="hidden" name="embed" value="1" />
+      <div>
+        <label for="email" class="sr-only">Email</label>
+        <input id="email" name="email" type="email" placeholder="Your email" required disabled={!isConfigured} />
+      </div>
+      <button type="submit" disabled={!isConfigured}>
+        Subscribe
+      </button>
+    </form>
+  </div>
+</aside>
