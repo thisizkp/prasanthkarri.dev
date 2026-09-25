@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content'
+import NewsletterForm from '@/components/NewsletterForm.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import { formatDate, getPostExcerpt, sortPosts } from '@/lib/posts'
 
@@ -12,7 +13,7 @@ const posts = sortPosts(await getCollection('posts'))
     <div class="intro">
       <img class="avatar" src="/avatar.png" alt="KP" width="80" height="80" />
       <p>
-        Hey, I'm KP. Been interested in how things work under the hood for as long as I can remember - systems, math, whatever pulls me. Writing about what I learn here.
+        Hey, I'm KP. I like figuring out how things work - systems, math, whatever pulls me. This is where I work through what I'm learning, one question at a time.
       </p>
     </div>
     <div class="post-list">
@@ -22,9 +23,10 @@ const posts = sortPosts(await getCollection('posts'))
             <a class="link" href={`/${post.id}`}>{post.data.title}</a>
           </h2>
           <time datetime={post.data.pubDate.toISOString()}>{formatDate(post.data.pubDate)}</time>
-          <p>{getPostExcerpt(post.body ?? '')}</p>
+          <p>{post.data.description ?? getPostExcerpt(post.body ?? '')}</p>
         </article>
       ))}
     </div>
   </section>
+  <NewsletterForm />
 </BaseLayout>

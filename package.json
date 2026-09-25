@@ -9,8 +9,9 @@
     "lint": "ASTRO_TELEMETRY_DISABLED=1 astro check"
   },
   "dependencies": {
-    "@fontsource-variable/bricolage-grotesque": "^5.2.8",
     "@astrojs/rss": "^4.0.12",
+    "@fontsource-variable/bricolage-grotesque": "^5.2.8",
+    "@vercel/analytics": "^2.0.1",
     "astro": "^5.15.0",
     "reading-time": "^1.5.0"
   },

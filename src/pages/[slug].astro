@@ -24,7 +24,7 @@ const { post } = Astro.props as { post: Post }
 const posts = sortPosts(await getCollection('posts'))
 const { Content } = await render(post)
 const { prev, next } = getAdjacentPosts(posts, post.id)
-const description = getPostExcerpt(post.body ?? '')
+const description = post.data.description ?? getPostExcerpt(post.body ?? '')
 const readingMinutes = getReadingTime(post.body ?? '')
 ---
 
@@ -55,6 +55,8 @@ const readingMinutes = getReadingTime(post.body ?? '')
         <Content />
       </div>
     </article>
+
+    <p class="back-to-writing"><a class="link" href="/">Back to all writing</a></p>
 
     <NewsletterForm />
 
