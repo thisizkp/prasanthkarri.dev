@@ -1,4 +1,5 @@
 ---
+import Analytics from '@vercel/analytics/astro'
 import Header from '@/components/Header.astro'
 import BackToTop from '@/components/BackToTop.astro'
 import '@/styles/global.css'
@@ -63,11 +64,13 @@ const ogImage = new URL('/og.svg', site)
       </main>
       <BackToTop />
     </div>
+    <Analytics />
     <script>
       const themeToggle = document.querySelector<HTMLButtonElement>('.theme-toggle')
 
       function syncThemeIcon() {
         const isDark = document.documentElement.classList.contains('dark')
+        themeToggle?.setAttribute('aria-label', isDark ? 'Switch to light theme' : 'Switch to dark theme')
         document.querySelector<SVGElement>('.theme-icon-moon')?.classList.toggle('is-hidden', isDark)
         document.querySelector<SVGElement>('.theme-icon-sun')?.classList.toggle('is-hidden', !isDark)
       }

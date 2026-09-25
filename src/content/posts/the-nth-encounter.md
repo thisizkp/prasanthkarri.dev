@@ -1,5 +1,6 @@
 ---
 title: 'The Nth Encounter'
+description: 'How a borrowed copy of Let Us C brought me back to computers, one programming puzzle at a time.'
 pubDate: 2025-04-16
 updatedDate: 2025-10-24
 tags: ["reflection"]

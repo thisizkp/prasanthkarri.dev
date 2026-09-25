@@ -1,5 +1,6 @@
 ---
 title: 'The First Encounter'
+description: 'A few minutes at a school computer, my name on the screen, and the beginning of a long curiosity.'
 pubDate: 2025-03-06
 tags: ["reflection"]
 ---
